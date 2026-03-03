@@ -1,0 +1,3 @@
+/* Intentionally minimal.
+   Global theme + layout are handled via Tailwind classes in components
+   and the background is defined in src/index.css. */
