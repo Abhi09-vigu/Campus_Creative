@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { api } from '../../api/apiClient';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function AdminDashboard() {
@@ -37,9 +37,9 @@ function AdminDashboard() {
         setDashboardLoading(true);
         try {
             const [resProb, resSel, resSettings] = await Promise.all([
-                axios.get('http://localhost:5000/api/admin/problems', getHeaders()),
-                axios.get('http://localhost:5000/api/admin/selections', getHeaders()),
-                axios.get('http://localhost:5000/api/admin/settings', getHeaders())
+                api.get('/api/admin/problems', getHeaders()),
+                api.get('/api/admin/selections', getHeaders()),
+                api.get('/api/admin/settings', getHeaders())
             ]);
             setProblems(resProb.data);
             setSelections(resSel.data);
@@ -59,8 +59,8 @@ function AdminDashboard() {
         setMsg({ text: '', type: '' });
         try {
             const next = !viewMode;
-            const res = await axios.patch(
-                'http://localhost:5000/api/admin/settings/view-mode',
+            const res = await api.patch(
+                '/api/admin/settings/view-mode',
                 { viewMode: next },
                 getHeaders()
             );
@@ -81,7 +81,7 @@ function AdminDashboard() {
         setMsg({ text: '', type: '' });
         try {
             const payload = { title: newTitle, description: newDesc, difficulty: 'Medium', isActive: true };
-            await axios.post('http://localhost:5000/api/admin/problems', payload, getHeaders());
+            await api.post('/api/admin/problems', payload, getHeaders());
 
             setMsg({ text: 'Directive uploaded to mainframe successfully.', type: 'success' });
             setNewTitle('');
@@ -99,7 +99,7 @@ function AdminDashboard() {
 
     const handleToggle = async (id) => {
         try {
-            await axios.patch(`http://localhost:5000/api/admin/problems/${id}/toggle`, {}, getHeaders());
+            await api.patch(`/api/admin/problems/${id}/toggle`, {}, getHeaders());
             fetchData();
         } catch (err) {
             alert('Failed to execute state toggle');

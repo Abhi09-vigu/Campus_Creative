@@ -5,10 +5,10 @@ This is a full-stack web application designed for hackathon organizers to manage
 ## Tech Stack
 - **Frontend**: React.js (Vite), Tailwind CSS, React Router DOM, Axios
 - **Backend**: Node.js, Express.js
-- **Database**: Local JSON files (no external database required)
+- **Database**: MongoDB (via Mongoose)
 
 ## Folder Structure
-- `backend/` - Contains the Express.js server, routes, middleware, and JSON data files (`data/`).
+- `backend/` - Contains the Express.js server, routes, middleware, models, and database connection.
 - `frontend/` - Contains the Vite React application, pages, and Tailwind styling.
 
 ## Application Features
@@ -40,7 +40,11 @@ This is a full-stack web application designed for hackathon organizers to manage
    ```bash
    npm install
    ```
-3. Start the server (runs on `http://localhost:5000`):
+3. Create `backend/.env` (or copy from `backend/.env.example`) and set at least:
+   - `MONGODB_URI`
+   - `ADMIN_SECRET`
+   - `CORS_ORIGIN` (for local dev: `http://localhost:5173`)
+4. Start the server (runs on `http://localhost:5000`):
    ```bash
    npm run dev
    ```
@@ -56,7 +60,10 @@ This is a full-stack web application designed for hackathon organizers to manage
    ```bash
    npm install
    ```
-3. Start the React app (typically runs on `http://localhost:5173`):
+3. Create `frontend/.env` (or copy from `frontend/.env.example`) and set:
+   - `VITE_API_ORIGINS=http://localhost:5000` (local backend)
+   - OR `VITE_API_ORIGINS=<comma-separated Render URLs>` (deployed backends)
+4. Start the React app (typically runs on `http://localhost:5173`):
    ```bash
    npm run dev
    ```

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { api } from '../../api/apiClient';
 import { motion, AnimatePresence } from 'framer-motion';
 import PageShell from '../../components/PageShell';
 import GlassCard from '../../components/GlassCard';
@@ -19,7 +19,7 @@ function AdminLogin() {
         try {
             await new Promise(resolve => setTimeout(resolve, 800)); // Animation grace time
 
-            const response = await axios.post('http://localhost:5000/api/admin/login', { secretKey });
+            const response = await api.post('/api/admin/login', { secretKey });
             if (response.data.success) {
                 localStorage.setItem('adminToken', response.data.token);
                 navigate('/admin/dashboard');

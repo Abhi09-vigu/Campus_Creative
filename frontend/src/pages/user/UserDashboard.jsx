@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { api } from '../../api/apiClient';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function UserDashboard() {
@@ -37,8 +37,8 @@ function UserDashboard() {
             setLoading(true);
             const headers = getHeaders();
             const [resProblems, resMySelection] = await Promise.all([
-                axios.get('http://localhost:5000/api/problems', headers),
-                axios.get('http://localhost:5000/api/my-selection', headers)
+                api.get('/api/problems', headers),
+                api.get('/api/my-selection', headers)
             ]);
 
             setProblems(resProblems.data);
@@ -63,7 +63,7 @@ function UserDashboard() {
 
         try {
             const payload = { problemId };
-            await axios.post('http://localhost:5000/api/select-problem', payload, getHeaders());
+            await api.post('/api/select-problem', payload, getHeaders());
 
             setMsg({ text: 'Selection saved successfully. You are now locked from selecting other problems.', type: 'success' });
             setUserSelection(problemId);
