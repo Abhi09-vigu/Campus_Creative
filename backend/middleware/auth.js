@@ -14,12 +14,16 @@ const requireAdmin = (req, res, next) => {
 const requireUser = async (req, res, next) => {
     // To keep it simple, we expect userId in headers or body if needed.
     // Actually, standard is using a token. Let's assume the frontend sends the user ID as A token, or something similar.
-    const token = req.headers.authorization?.split(' ')[1];
+    const rawAuth = req.headers.authorization;
+    const authToken = rawAuth ? rawAuth.split(' ')[1] || rawAuth : '';
+    const userIdHeader = req.headers['x-user-id'];
+    const token = authToken || (userIdHeader == null ? '' : String(userIdHeader));
+
     if (!token) {
         return res.status(401).json({ message: 'Unauthorized. User not logged in.' });
     }
 
-    const userId = req.headers['x-user-id'] || token;
+    const userId = userIdHeader || token;
     const userName = req.headers['x-user-name'];
     const userEmail = req.headers['x-user-email'];
 

@@ -1,8 +1,5 @@
 const DEFAULT_ORIGINS = [
-    'https://campus-creative.onrender.com',
-    'https://campus-creative-1.onrender.com',
-    'https://campus-creative-2.onrender.com',
-    'https://campus-creative-3.onrender.com'
+    'https://campus-creative.onrender.com'
 ];
 
 function normalizeOrigin(origin) {
@@ -22,12 +19,17 @@ function getConfiguredOrigins() {
 }
 
 /**
- * Assigns one API origin per browser session, rotating origins in a round-robin
- * sequence across sessions in the same browser (via localStorage counter).
+ * Assigns one API origin per browser session.
+ *
+ * This project now defaults to a single deployed server. If multiple origins are
+ * provided via `VITE_API_ORIGINS`, we still pin one origin per session for
+ * consistency.
  */
 export function getAssignedApiOrigin() {
     const origins = getConfiguredOrigins().map(normalizeOrigin).filter(Boolean);
     if (origins.length === 0) return '';
+
+    if (origins.length === 1) return origins[0];
 
     const SESSION_KEY = 'cc_api_origin';
     const RR_KEY = 'cc_api_rr_idx';

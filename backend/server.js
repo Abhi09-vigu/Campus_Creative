@@ -16,6 +16,8 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.set('trust proxy', 1);
+// Avoid conditional GET 304s for API responses (frontend relies on response bodies).
+app.set('etag', false);
 
 app.use(
     pinoHttp({
@@ -51,6 +53,13 @@ app.use(
         legacyHeaders: false
     })
 );
+
+// Prevent browsers/CDNs from caching API responses.
+app.use('/api', (req, res, next) => {
+    res.setHeader('Cache-Control', 'no-store');
+    res.setHeader('Pragma', 'no-cache');
+    next();
+});
 
 // Main Routes
 app.use('/api/admin', adminRoutes);
