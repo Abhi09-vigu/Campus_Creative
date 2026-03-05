@@ -6,6 +6,7 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 import UserDashboard from './pages/user/UserDashboard';
 import './App.css';
 
+
 function App() {
   useEffect(() => {
     document.documentElement.classList.remove('dark');
