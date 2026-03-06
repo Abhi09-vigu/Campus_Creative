@@ -1,14 +1,1682 @@
 [
   {
-    "id": "1",
-    "name": "Team Alpha",
-    "email": "alpha@example.com",
-    "password": "password123"
+    "teamName": "Tech Masters",
+    "role": "Team Leader",
+    "name": "Jinka Vaishali",
+    "registerNumber": "99240020540",
+    "email": "99240020540@klu.ac.in"
   },
   {
-    "id": "2",
-    "name": "Team Beta",
-    "email": "beta@example.com",
-    "password": "password123"
+    "teamName": "Tech Masters",
+    "role": "Team Member 1",
+    "name": "Tummala Yaswanth Raj",
+    "registerNumber": "9924005440",
+    "email": "9924005440@klu.ac.in"
+  },
+  {
+    "teamName": "Tech Masters",
+    "role": "Team Member 2",
+    "name": "Mutyala Sai Kiran",
+    "registerNumber": "99240041427",
+    "email": "99240041427@klu.ac.in"
+  },
+  {
+    "teamName": "Tech Masters",
+    "role": "Team Member 3",
+    "name": "Kommu Gayathri",
+    "registerNumber": "99240040993",
+    "email": "99240040993@klu.ac.in"
+  },
+  {
+    "teamName": "Coders",
+    "role": "Team Leader",
+    "name": "Sindhu C",
+    "registerNumber": "99240040807",
+    "email": "99240040807@klu.ac.in"
+  },
+  {
+    "teamName": "Coders",
+    "role": "Team Member 1",
+    "name": "Manigala Mahitha",
+    "registerNumber": "99240041229",
+    "email": "99240041229@klu.ac.in"
+  },
+  {
+    "teamName": "Coders",
+    "role": "Team Member 2",
+    "name": "Sidharapu Lohitha",
+    "registerNumber": "99240040819",
+    "email": "99240040819@klu.ac.in"
+  },
+  {
+    "teamName": "Coders",
+    "role": "Team Member 3",
+    "name": "Sigineni Anusha",
+    "registerNumber": "99240040821",
+    "email": "99240040821@klu.ac.in"
+  },
+  {
+    "teamName": "RADHAKRISHANA",
+    "role": "Team Leader",
+    "name": "T.Manoj",
+    "registerNumber": "99240040481",
+    "email": "99240040481@klu.ac.in"
+  },
+  {
+    "teamName": "RADHAKRISHANA",
+    "role": "Team Member 1",
+    "name": "E.Vasudeva Reddy",
+    "registerNumber": "99240040476",
+    "email": "99240040476@klu.ac.in"
+  },
+  {
+    "teamName": "RADHAKRISHANA",
+    "role": "Team Member 2",
+    "name": "Gali Charitha",
+    "registerNumber": "9924051004",
+    "email": "9924051004@klu.ac.in"
+  },
+  {
+    "teamName": "RADHAKRISHANA",
+    "role": "Team Member 3",
+    "name": "T.RISHITHA",
+    "registerNumber": "9924051005",
+    "email": "9924051005@klu.ac.in"
+  },
+  {
+    "teamName": "Idea architects",
+    "role": "Team Leader",
+    "name": "Karanam Kavyasree",
+    "registerNumber": "99240040563",
+    "email": "99240040563@klu.ac.in"
+  },
+  {
+    "teamName": "Idea architects",
+    "role": "Team Member 1",
+    "name": "Vemulapati padmaja",
+    "registerNumber": "9924020035",
+    "email": "9924020035@klu.ac.in"
+  },
+  {
+    "teamName": "Idea architects",
+    "role": "Team Member 2",
+    "name": "Karuparthi kusuma gana madhuri",
+    "registerNumber": "99240040552",
+    "email": "99240040552@klu.ac.in"
+  },
+  {
+    "teamName": "Idea architects",
+    "role": "Team Member 3",
+    "name": "Chintala kamakshi",
+    "registerNumber": "9924020006",
+    "email": "9924020006@klu.ac.in"
+  },
+  {
+    "teamName": "Goal Getters",
+    "role": "Team Leader",
+    "name": "Ediga SnehaPriya",
+    "registerNumber": "99240040479",
+    "email": "99240040479@klu.ac.in"
+  },
+  {
+    "teamName": "Goal Getters",
+    "role": "Team Member 1",
+    "name": "Elisetty Sowmya",
+    "registerNumber": "99240040475",
+    "email": "99240040475@klu.ac.in"
+  },
+  {
+    "teamName": "Goal Getters",
+    "role": "Team Member 2",
+    "name": "Ganaparthi Rani",
+    "registerNumber": "99240040469",
+    "email": "99240040469@klu.ac.in"
+  },
+  {
+    "teamName": "Goal Getters",
+    "role": "Team Member 3",
+    "name": "Gaduputi Navya",
+    "registerNumber": "99240040037",
+    "email": "99240040037@klu.ac.in"
+  },
+  {
+    "teamName": "Quad Squad",
+    "role": "Team Leader",
+    "name": "K Tharun Keshava",
+    "registerNumber": "99240040959",
+    "email": "99240040959@klu.ac.in"
+  },
+  {
+    "teamName": "Quad Squad",
+    "role": "Team Member 1",
+    "name": "A Chandana Keerthi",
+    "registerNumber": "99240041260",
+    "email": "99240041260@klu.ac.in"
+  },
+  {
+    "teamName": "Quad Squad",
+    "role": "Team Member 2",
+    "name": "O Siddhartha",
+    "registerNumber": "99240041343",
+    "email": "99240041343@klu.ac.in"
+  },
+  {
+    "teamName": "Quad Squad",
+    "role": "Team Member 3",
+    "name": "G Kranthi Kumar",
+    "registerNumber": "99240040180",
+    "email": "99240040180@klu.ac.in"
+  },
+  {
+    "teamName": "Team Bug",
+    "role": "Team Leader",
+    "name": "K.MOHAN SRI SAI GANDHI",
+    "registerNumber": "9924005428",
+    "email": "9924005428@klu.ac.in"
+  },
+  {
+    "teamName": "Team Bug",
+    "role": "Team Member 1",
+    "name": "K.NAGA KARTHIK",
+    "registerNumber": "9924005271",
+    "email": "9924005271@klu.ac.in"
+  },
+  {
+    "teamName": "Team Bug",
+    "role": "Team Member 2",
+    "name": "A.SRI RAM CHARAN TEJA",
+    "registerNumber": "9924005417",
+    "email": "9924005417@klu.ac.in"
+  },
+  {
+    "teamName": "Team Bug",
+    "role": "Team Member 3",
+    "name": "M.JASWANTH",
+    "registerNumber": "9924005408",
+    "email": "9924005408@klu.ac.in"
+  },
+  {
+    "teamName": "Firestrom",
+    "role": "Team Leader",
+    "name": "G Jathin krishna goud",
+    "registerNumber": "99240040392",
+    "email": "99240040392@klu.ac.in"
+  },
+  {
+    "teamName": "Firestrom",
+    "role": "Team Member 1",
+    "name": "N Venkata subbaih",
+    "registerNumber": "9924005113",
+    "email": "9924005113@klu.ac.in"
+  },
+  {
+    "teamName": "Firestrom",
+    "role": "Team Member 2",
+    "name": "J Someshwara Karthik",
+    "registerNumber": "99240040070",
+    "email": "99240040070@klu.ac.in"
+  },
+  {
+    "teamName": "Firestrom",
+    "role": "Team Member 3",
+    "name": "V Ajay kumar reddy",
+    "registerNumber": "99240040922",
+    "email": "99240040922@klu.ac.in"
+  },
+  {
+    "teamName": "Think sthere",
+    "role": "Team Leader",
+    "name": "B.Srujana Reddy",
+    "registerNumber": "99240040374",
+    "email": "99240040374@klu.ac.in"
+  },
+  {
+    "teamName": "Think sthere",
+    "role": "Team Member 1",
+    "name": "BADRI SINDHU Reddy",
+    "registerNumber": "99240040371",
+    "email": "99240040371@klu.ac.in"
+  },
+  {
+    "teamName": "Think sthere",
+    "role": "Team Member 2",
+    "name": "A.Sai Harshitha",
+    "registerNumber": "99240040381",
+    "email": "99240040381@klu.ac.in"
+  },
+  {
+    "teamName": "Think sthere",
+    "role": "Team Member 3",
+    "name": "K.Hema",
+    "registerNumber": "9924005023",
+    "email": "9924005023@klu.ac.in"
+  },
+  {
+    "teamName": "IMMORTAL KINGS",
+    "role": "Team Leader",
+    "name": "THANDA JILANI",
+    "registerNumber": "99240040435",
+    "email": "99240040435@klu.ac.in"
+  },
+  {
+    "teamName": "IMMORTAL KINGS",
+    "role": "Team Member 1",
+    "name": "ATHIKARI KARTHIK",
+    "registerNumber": "99240040460",
+    "email": "99240040460@klu.ac.in"
+  },
+  {
+    "teamName": "IMMORTAL KINGS",
+    "role": "Team Member 2",
+    "name": "CHINTALA CHANDRA SEKHAR",
+    "registerNumber": "99240040452",
+    "email": "99240040452@klu.ac.in"
+  },
+  {
+    "teamName": "IMMORTAL KINGS",
+    "role": "Team Member 3",
+    "name": "BOJADLA VAGDEVI",
+    "registerNumber": "99240040418",
+    "email": "99240040418@klu.ac.in"
+  },
+  {
+    "teamName": "Beast",
+    "role": "Team Leader",
+    "name": "YALAVARTHI NIKHIL",
+    "registerNumber": "9924005404",
+    "email": "9924005404@klu.ac.in"
+  },
+  {
+    "teamName": "Beast",
+    "role": "Team Member 1",
+    "name": "MANOJ KUMAR KOLA",
+    "registerNumber": "9924005151",
+    "email": "9924005151@klu.ac.in"
+  },
+  {
+    "teamName": "Beast",
+    "role": "Team Member 2",
+    "name": "KARI BHARGAV MANIKANTHA",
+    "registerNumber": "9924005445",
+    "email": "9924005445@klu.ac.in"
+  },
+  {
+    "teamName": "Beast",
+    "role": "Team Member 3",
+    "name": "MALINENI SAI YASWANTH",
+    "registerNumber": "9924005405",
+    "email": "9924005405@klu.ac.in"
+  },
+  {
+    "teamName": "Team Splash",
+    "role": "Team Leader",
+    "name": "Y. Harish Reddy",
+    "registerNumber": "99240040240",
+    "email": "99240040240@klu.ac.in"
+  },
+  {
+    "teamName": "Team Splash",
+    "role": "Team Member 1",
+    "name": "HK. Mahesh",
+    "registerNumber": "99240040241",
+    "email": "99240040241@klu.ac.in"
+  },
+  {
+    "teamName": "Team Splash",
+    "role": "Team Member 2",
+    "name": "Guru Tejeswara Rao",
+    "registerNumber": "99240040220",
+    "email": "99240040220@klu.ac.in"
+  },
+  {
+    "teamName": "Team Splash",
+    "role": "Team Member 3",
+    "name": "Sandeep Sanapala",
+    "registerNumber": "99240040161",
+    "email": "99240040161@klu.ac.in"
+  },
+  {
+    "teamName": "QUANTUM CODERS",
+    "role": "Team Leader",
+    "name": "M.Adhithya Ram",
+    "registerNumber": "99240041030",
+    "email": "99240041030@klu.ac.in"
+  },
+  {
+    "teamName": "QUANTUM CODERS",
+    "role": "Team Member 1",
+    "name": "M.Haarika",
+    "registerNumber": "99240041031",
+    "email": "99240041031@klu.ac.in"
+  },
+  {
+    "teamName": "QUANTUM CODERS",
+    "role": "Team Member 2",
+    "name": "M.Manoj",
+    "registerNumber": "99240041026",
+    "email": "99240041026@klu.ac.in"
+  },
+  {
+    "teamName": "QUANTUM CODERS",
+    "role": "Team Member 3",
+    "name": "M.Gopichand",
+    "registerNumber": "99240041032",
+    "email": "99240041032@klu.ac.in"
+  },
+  {
+    "teamName": "Megatrons",
+    "role": "Team Leader",
+    "name": "Shaik Abdul Basha",
+    "registerNumber": "99240041181",
+    "email": "99240041181@klu.ac.in"
+  },
+  {
+    "teamName": "Megatrons",
+    "role": "Team Member 1",
+    "name": "S Yuva Sri Teja",
+    "registerNumber": "99240041172",
+    "email": "99240041172@klu.ac.in"
+  },
+  {
+    "teamName": "Megatrons",
+    "role": "Team Member 2",
+    "name": "P H Darshan Reddy",
+    "registerNumber": "99240041426",
+    "email": "99240041426@klu.ac.in"
+  },
+  {
+    "teamName": "Megatrons",
+    "role": "Team Member 3",
+    "name": "Vayyuvuri Sudheer Kumar",
+    "registerNumber": "99240040332",
+    "email": "99240040332@klu.ac.in"
+  },
+  {
+    "teamName": "Warriors",
+    "role": "Team Leader",
+    "name": "Ediga Laxmi Koushik Goud",
+    "registerNumber": "99240040219",
+    "email": "99240040219@klu.ac.in"
+  },
+  {
+    "teamName": "Warriors",
+    "role": "Team Member 1",
+    "name": "Sushmitha N",
+    "registerNumber": "99240040409",
+    "email": "99240040409@klu.ac.in"
+  },
+  {
+    "teamName": "Warriors",
+    "role": "Team Member 2",
+    "name": "Dhanush PH",
+    "registerNumber": "9924005471",
+    "email": "9924005471@klu.ac.in"
+  },
+  {
+    "teamName": "Warriors",
+    "role": "Team Member 3",
+    "name": "D. Indu",
+    "registerNumber": "9924020024",
+    "email": "9924020024@klu.ac.in"
+  },
+  {
+    "teamName": "Mind Masters",
+    "role": "Team Leader",
+    "name": "PERUMALLA V V S R HARI KIRAN",
+    "registerNumber": "99240041118",
+    "email": "99240041118@klu.ac.in"
+  },
+  {
+    "teamName": "Mind Masters",
+    "role": "Team Member 1",
+    "name": "PERLA MASTHAN BABU",
+    "registerNumber": "99240041102",
+    "email": "99240041102@klu.ac.in"
+  },
+  {
+    "teamName": "Mind Masters",
+    "role": "Team Member 2",
+    "name": "POTU VASU CHOWDARY",
+    "registerNumber": "99240040312",
+    "email": "99240040312@klu.ac.in"
+  },
+  {
+    "teamName": "Mind Masters",
+    "role": "Team Member 3",
+    "name": "PILLILLI NAGARJUNA",
+    "registerNumber": "99240040310",
+    "email": "99240040310@klu.ac.in"
+  },
+  {
+    "teamName": "Lightning bolt",
+    "role": "Team Leader",
+    "name": "U.Vinay kumar",
+    "registerNumber": "99240040486",
+    "email": "99240040486@klu.ac.in"
+  },
+  {
+    "teamName": "Lightning bolt",
+    "role": "Team Member 1",
+    "name": "Dwaranala Rakesh",
+    "registerNumber": "99240040472",
+    "email": "99240040472@klu.ac.in"
+  },
+  {
+    "teamName": "Lightning bolt",
+    "role": "Team Member 2",
+    "name": "E.Tharun Kumar",
+    "registerNumber": "99240040488",
+    "email": "99240040488@klu.ac.in"
+  },
+  {
+    "teamName": "Lightning bolt",
+    "role": "Team Member 3",
+    "name": "K.Mahadeva Reddy",
+    "registerNumber": "9924005048",
+    "email": "9924005048@klu.ac.in"
+  },
+  {
+    "teamName": "Teach Titans",
+    "role": "Team Leader",
+    "name": "Somara Tarun",
+    "registerNumber": "99240040801",
+    "email": "99240040801@klu.ac.in"
+  },
+  {
+    "teamName": "Teach Titans",
+    "role": "Team Member 1",
+    "name": "Bodi Praveena",
+    "registerNumber": "99240040423",
+    "email": "99240040423@klu.ac.in"
+  },
+  {
+    "teamName": "Teach Titans",
+    "role": "Team Member 2",
+    "name": "Adi Andhra Divendra",
+    "registerNumber": "99240040800",
+    "email": "99240040800@klu.ac.in"
+  },
+  {
+    "teamName": "Teach Titans",
+    "role": "Team Member 3",
+    "name": "Bille Pujitha",
+    "registerNumber": "99240040401",
+    "email": "99240040401@klu.ac.in"
+  },
+  {
+    "teamName": "Alpha Legends",
+    "role": "Team Leader",
+    "name": "K ASHWANTHA CHARI",
+    "registerNumber": "99240040114",
+    "email": "99240040114@klu.ac.in"
+  },
+  {
+    "teamName": "Alpha Legends",
+    "role": "Team Member 1",
+    "name": "K Govardhan",
+    "registerNumber": "99240040186",
+    "email": "99240040186@klu.ac.in"
+  },
+  {
+    "teamName": "Alpha Legends",
+    "role": "Team Member 2",
+    "name": "S N pradhnesh",
+    "registerNumber": "99240040184",
+    "email": "99240040184@klu.ac.in"
+  },
+  {
+    "teamName": "Alpha Legends",
+    "role": "Team Member 3",
+    "name": "SN Pranav",
+    "registerNumber": "99240040196",
+    "email": "99240040196@klu.ac.in"
+  },
+  {
+    "teamName": "The Quad Pirates",
+    "role": "Team Leader",
+    "name": "Talari Vishnu Vardhan sai",
+    "registerNumber": "99240040031",
+    "email": "99240040031@klu.ac.in"
+  },
+  {
+    "teamName": "The Quad Pirates",
+    "role": "Team Member 1",
+    "name": "C Nagamunindra",
+    "registerNumber": "99240040030",
+    "email": "99240040030@klu.ac.in"
+  },
+  {
+    "teamName": "The Quad Pirates",
+    "role": "Team Member 2",
+    "name": "D.Dinesh reddy",
+    "registerNumber": "99240040894",
+    "email": "99240040894@klu.ac.in"
+  },
+  {
+    "teamName": "The Quad Pirates",
+    "role": "Team Member 3",
+    "name": "B.Uday kumar",
+    "registerNumber": "99240040417",
+    "email": "99240040417@klu.ac.in"
+  },
+  {
+    "teamName": "Spirit",
+    "role": "Team Leader",
+    "name": "Burri Satish",
+    "registerNumber": "99240041168",
+    "email": "99240041168@klu.ac.in"
+  },
+  {
+    "teamName": "Spirit",
+    "role": "Team Member 1",
+    "name": "Balija Vijay",
+    "registerNumber": "99240040372",
+    "email": "99240040372@klu.ac.in"
+  },
+  {
+    "teamName": "Spirit",
+    "role": "Team Member 2",
+    "name": "Kota Konda Shiva Prasad",
+    "registerNumber": "99240040653",
+    "email": "99240040653@klu.ac.in"
+  },
+  {
+    "teamName": "Spirit",
+    "role": "Team Member 3",
+    "name": "Uppari Harish",
+    "registerNumber": "99240041166",
+    "email": "99240041166@klu.ac.in"
+  },
+  {
+    "teamName": "Loop legends",
+    "role": "Team Leader",
+    "name": "Uppara Harshavardhan",
+    "registerNumber": "99240040565",
+    "email": "99240040565@klu.ac.in"
+  },
+  {
+    "teamName": "Loop legends",
+    "role": "Team Member 1",
+    "name": "Battina Hemanth Kumar",
+    "registerNumber": "9924008066",
+    "email": "9924008066@klu.ac.in"
+  },
+  {
+    "teamName": "Loop legends",
+    "role": "Team Member 2",
+    "name": "Kaki Hemanth",
+    "registerNumber": "99240040969",
+    "email": "99240040969@klu.ac.in"
+  },
+  {
+    "teamName": "Loop legends",
+    "role": "Team Member 3",
+    "name": "Pujari Ram Prasad",
+    "registerNumber": "99240040547",
+    "email": "99240040547@klu.ac.in"
+  },
+  {
+    "teamName": "Bankai",
+    "role": "Team Leader",
+    "name": "Vighnesh",
+    "registerNumber": "99240040496",
+    "email": "99240040496@klu.ac.in"
+  },
+  {
+    "teamName": "Bankai",
+    "role": "Team Member 1",
+    "name": "Veeranjineyulu",
+    "registerNumber": "99240040514",
+    "email": "99240040514@klu.ac.in"
+  },
+  {
+    "teamName": "Bankai",
+    "role": "Team Member 2",
+    "name": "Umar Farooq",
+    "registerNumber": "99240040518",
+    "email": "99240040518@klu.ac.in"
+  },
+  {
+    "teamName": "Bankai",
+    "role": "Team Member 3",
+    "name": "Uma Ramalingeshwarrao",
+    "registerNumber": "99240040917",
+    "email": "99240040917@klu.ac.in"
+  },
+  {
+    "teamName": "Shadow Warriors",
+    "role": "Team Leader",
+    "name": "Thakur Kissan Thapa",
+    "registerNumber": "9924008019",
+    "email": "9924008019@klu.ac.in"
+  },
+  {
+    "teamName": "Shadow Warriors",
+    "role": "Team Member 1",
+    "name": "MITIKIRI JAYA PRAKASH",
+    "registerNumber": "9924008041",
+    "email": "9924008041@klu.ac.in"
+  },
+  {
+    "teamName": "Shadow Warriors",
+    "role": "Team Member 2",
+    "name": "BADDULA. GOPICHANDHU",
+    "registerNumber": "99240041176",
+    "email": "99240041176@klu.ac.in"
+  },
+  {
+    "teamName": "Shadow Warriors",
+    "role": "Team Member 3",
+    "name": "Paluru Vijay Kumar",
+    "registerNumber": "9924005411",
+    "email": "9924005411@klu.ac.in"
+  },
+  {
+    "teamName": "Grow",
+    "role": "Team Leader",
+    "name": "Baddigam Koushik Reddy",
+    "registerNumber": "9924008009",
+    "email": "9924008009@klu.ac.in"
+  },
+  {
+    "teamName": "Grow",
+    "role": "Team Member 1",
+    "name": "A Ramcharan Tej",
+    "registerNumber": "9924005022",
+    "email": "9924005022@klu.ac.in"
+  },
+  {
+    "teamName": "Grow",
+    "role": "Team Member 2",
+    "name": "N Trivikram",
+    "registerNumber": "99240040019",
+    "email": "99240040019@klu.ac.in"
+  },
+  {
+    "teamName": "Grow",
+    "role": "Team Member 3",
+    "name": "M Maneesh Kumar",
+    "registerNumber": "99240040755",
+    "email": "99240040755@klu.ac.in"
+  },
+  {
+    "teamName": "POWER HOUSE",
+    "role": "Team Leader",
+    "name": "K.SIVA CHARAN",
+    "registerNumber": "99240040383",
+    "email": "99240040383@klu.ac.in"
+  },
+  {
+    "teamName": "POWER HOUSE",
+    "role": "Team Member 1",
+    "name": "A.HARSHA VARDHAN",
+    "registerNumber": "99240040373",
+    "email": "99240040373@klu.ac.in"
+  },
+  {
+    "teamName": "POWER HOUSE",
+    "role": "Team Member 2",
+    "name": "V.AKSHAYA HARSHINI",
+    "registerNumber": "99240040590",
+    "email": "99240040590@klu.ac.in"
+  },
+  {
+    "teamName": "POWER HOUSE",
+    "role": "Team Member 3",
+    "name": "A.HASWITHA",
+    "registerNumber": "99240040384",
+    "email": "99240040384@klu.ac.in"
+  },
+  {
+    "teamName": "Team nova",
+    "role": "Team Leader",
+    "name": "Ch.Vishnu vadhan Reddy",
+    "registerNumber": "99240040445",
+    "email": "99240040445@klu.ac.in"
+  },
+  {
+    "teamName": "Team nova",
+    "role": "Team Member 1",
+    "name": "Gujja Sathwik",
+    "registerNumber": "99240040500",
+    "email": "99240040500@klu.ac.in"
+  },
+  {
+    "teamName": "Team nova",
+    "role": "Team Member 2",
+    "name": "V.teja achari",
+    "registerNumber": "99240040523",
+    "email": "99240040523@klu.ac.in"
+  },
+  {
+    "teamName": "Team nova",
+    "role": "Team Member 3",
+    "name": "C. Gangadhar reddy",
+    "registerNumber": "99240040446",
+    "email": "99240040446@klu.ac.in"
+  },
+  {
+    "teamName": "Sparkz supers",
+    "role": "Team Leader",
+    "name": "GUDURU SATHWIK GOWD",
+    "registerNumber": "99240040055",
+    "email": "99240040055@klu.ac.in"
+  },
+  {
+    "teamName": "Sparkz supers",
+    "role": "Team Member 1",
+    "name": "GUNTIMADUGU DHARANI VARMA",
+    "registerNumber": "99240040495",
+    "email": "99240040495@klu.ac.in"
+  },
+  {
+    "teamName": "Sparkz supers",
+    "role": "Team Member 2",
+    "name": "GOPPI REDDY NAVADEEP REDDY",
+    "registerNumber": "99240040526",
+    "email": "99240040526@klu.ac.in"
+  },
+  {
+    "teamName": "Sparkz supers",
+    "role": "Team Member 3",
+    "name": "KAMALAMARRY JAHNAVI",
+    "registerNumber": "99240040947",
+    "email": "99240040947@klu.ac.in"
+  },
+  {
+    "teamName": "Zeroemission squad",
+    "role": "Team Leader",
+    "name": "M.Rohith Manikanta",
+    "registerNumber": "9924005472",
+    "email": "9924005472@klu.ac.in"
+  },
+  {
+    "teamName": "Zeroemission squad",
+    "role": "Team Member 1",
+    "name": "N.Sai Rishitha",
+    "registerNumber": "9924005439",
+    "email": "9924005439@klu.ac.in"
+  },
+  {
+    "teamName": "Zeroemission squad",
+    "role": "Team Member 2",
+    "name": "P.Gamini",
+    "registerNumber": "99240041201",
+    "email": "99240041201@klu.ac.in"
+  },
+  {
+    "teamName": "Zeroemission squad",
+    "role": "Team Member 3",
+    "name": "M.Simhadri",
+    "registerNumber": "9924008108",
+    "email": "9924008108@klu.ac.in"
+  },
+  {
+    "teamName": "Team boys",
+    "role": "Team Leader",
+    "name": "KODI BHASKAR BHANU VAMSI",
+    "registerNumber": "9924005288",
+    "email": "9924005288@klu.ac.in"
+  },
+  {
+    "teamName": "Team boys",
+    "role": "Team Member 1",
+    "name": "S Sandeep",
+    "registerNumber": "9924005199",
+    "email": "9924005199@klu.ac.in"
+  },
+  {
+    "teamName": "Team boys",
+    "role": "Team Member 2",
+    "name": "L bala siva Rohith",
+    "registerNumber": "9924005296",
+    "email": "9924005296@klu.ac.in"
+  },
+  {
+    "teamName": "Team boys",
+    "role": "Team Member 3",
+    "name": "P sriram sai prasad",
+    "registerNumber": "9924005134",
+    "email": "9924005134@klu.ac.in"
+  },
+  {
+    "teamName": "Infinity Minds",
+    "role": "Team Leader",
+    "name": "Vangala NithinReddy",
+    "registerNumber": "99240040076",
+    "email": "99240040076@klu.ac.in"
+  },
+  {
+    "teamName": "Infinity Minds",
+    "role": "Team Member 1",
+    "name": "Valluri SivaSankar",
+    "registerNumber": "99240040075",
+    "email": "99240040075@klu.ac.in"
+  },
+  {
+    "teamName": "Infinity Minds",
+    "role": "Team Member 2",
+    "name": "Kanta Chennakeshavulu",
+    "registerNumber": "99240041225",
+    "email": "99240041225@klu.ac.in"
+  },
+  {
+    "teamName": "Infinity Minds",
+    "role": "Team Member 3",
+    "name": "Gudla SathishReddy",
+    "registerNumber": "99240040519",
+    "email": "99240040519@klu.ac.in"
+  },
+  {
+    "teamName": "MINDMESH",
+    "role": "Team Leader",
+    "name": "Pothuri Preethika",
+    "registerNumber": "9924005204",
+    "email": "9924005204@klu.ac.in"
+  },
+  {
+    "teamName": "MINDMESH",
+    "role": "Team Member 1",
+    "name": "Singam Setty Greeshma Royal",
+    "registerNumber": "99240040812",
+    "email": "99240040812@klu.ac.in"
+  },
+  {
+    "teamName": "MINDMESH",
+    "role": "Team Member 2",
+    "name": "Nara harshitha sai",
+    "registerNumber": "99240040676",
+    "email": "99240040676@klu.ac.in"
+  },
+  {
+    "teamName": "MINDMESH",
+    "role": "Team Member 3",
+    "name": "Garlanka Hema Latha",
+    "registerNumber": "99240040822",
+    "email": "99240040822@klu.ac.in"
+  },
+  {
+    "teamName": "Toxic Squad",
+    "role": "Team Leader",
+    "name": "GARKA SIMHADRI",
+    "registerNumber": "9924005143",
+    "email": "9924005143@klu.ac.in"
+  },
+  {
+    "teamName": "Toxic Squad",
+    "role": "Team Member 1",
+    "name": "KOCCHERLA MOHAN BALAJI",
+    "registerNumber": "9924005333",
+    "email": "9924005333@klu.ac.in"
+  },
+  {
+    "teamName": "Toxic Squad",
+    "role": "Team Member 2",
+    "name": "Manne Sunitha",
+    "registerNumber": "9924005308",
+    "email": "9924005308@klu.ac.in"
+  },
+  {
+    "teamName": "Toxic Squad",
+    "role": "Team Member 3",
+    "name": "Modigari Harshavardhan",
+    "registerNumber": "9924005106",
+    "email": "9924005106@klu.ac.in"
+  },
+  {
+    "teamName": "Shadow Titans",
+    "role": "Team Leader",
+    "name": "Mitiagar Fareed",
+    "registerNumber": "9924005102",
+    "email": "9924005102@klu.ac.in"
+  },
+  {
+    "teamName": "Shadow Titans",
+    "role": "Team Member 1",
+    "name": "DORADLA SRIKAR",
+    "registerNumber": "99240040898",
+    "email": "99240040898@klu.ac.in"
+  },
+  {
+    "teamName": "Shadow Titans",
+    "role": "Team Member 2",
+    "name": "Kooli venkata guru Prasad",
+    "registerNumber": "99240040419",
+    "email": "99240040419@klu.ac.in"
+  },
+  {
+    "teamName": "Shadow Titans",
+    "role": "Team Member 3",
+    "name": "Burra Tharun",
+    "registerNumber": "99240040426",
+    "email": "99240040426@klu.ac.in"
+  },
+  {
+    "teamName": "BRAINY BUTTERFILES",
+    "role": "Team Leader",
+    "name": "Kata Vandana",
+    "registerNumber": "99240040568",
+    "email": "99240040568@klu.ac.in"
+  },
+  {
+    "teamName": "BRAINY BUTTERFILES",
+    "role": "Team Member 1",
+    "name": "Vangala Medhini",
+    "registerNumber": "99240040546",
+    "email": "99240040546@klu.ac.in"
+  },
+  {
+    "teamName": "BRAINY BUTTERFILES",
+    "role": "Team Member 2",
+    "name": "Vankiraju Thanu Sri Sai",
+    "registerNumber": "99240040553",
+    "email": "99240040553@klu.ac.in"
+  },
+  {
+    "teamName": "BRAINY BUTTERFILES",
+    "role": "Team Member 3",
+    "name": "Katakam Pravallika",
+    "registerNumber": "99240040569",
+    "email": "99240040569@klu.ac.in"
+  },
+  {
+    "teamName": "Alpha Warriors",
+    "role": "Team Leader",
+    "name": "PADAMATI SAI GANESH YADAV",
+    "registerNumber": "99240041275",
+    "email": "99240041275@klu.ac.in"
+  },
+  {
+    "teamName": "Alpha Warriors",
+    "role": "Team Member 1",
+    "name": "POTLA MOKSHAGNA CHOWDARY",
+    "registerNumber": "99240040307",
+    "email": "99240040307@klu.ac.in"
+  },
+  {
+    "teamName": "Alpha Warriors",
+    "role": "Team Member 2",
+    "name": "PERUGU CHINMAI",
+    "registerNumber": "99240041068",
+    "email": "99240041068@klu.ac.in"
+  },
+  {
+    "teamName": "Alpha Warriors",
+    "role": "Team Member 3",
+    "name": "S.NAGAMANISHA",
+    "registerNumber": "9924005312",
+    "email": "9924005312@klu.ac.in"
+  },
+  {
+    "teamName": "Creation Hub",
+    "role": "Team Leader",
+    "name": "M . Sathwika",
+    "registerNumber": "99240040651",
+    "email": "99240040651@klu.ac.in"
+  },
+  {
+    "teamName": "Creation Hub",
+    "role": "Team Member 1",
+    "name": "M . Siva Ram Prasad",
+    "registerNumber": "9924005406",
+    "email": "9924005406@klu.ac.in"
+  },
+  {
+    "teamName": "Creation Hub",
+    "role": "Team Member 2",
+    "name": "R . Siva Arun Kumar",
+    "registerNumber": "99240040092",
+    "email": "99240040092@klu.ac.in"
+  },
+  {
+    "teamName": "Creation Hub",
+    "role": "Team Member 3",
+    "name": "Sangani Venkateswar reddy",
+    "registerNumber": "99240041246",
+    "email": "99240041246@klu.ac.in"
+  },
+  {
+    "teamName": "Aaha",
+    "role": "Team Leader",
+    "name": "CHANDRASEKHAR SATHYA",
+    "registerNumber": "9924051024",
+    "email": "9924051024@klu.ac.in"
+  },
+  {
+    "teamName": "Aaha",
+    "role": "Team Member 1",
+    "name": "P AKSHAYA REDDY",
+    "registerNumber": "99240041310",
+    "email": "99240041310@klu.ac.in"
+  },
+  {
+    "teamName": "Aaha",
+    "role": "Team Member 2",
+    "name": "C Amrutha Vani",
+    "registerNumber": "99240040207",
+    "email": "99240040207@klu.ac.in"
+  },
+  {
+    "teamName": "Aaha",
+    "role": "Team Member 3",
+    "name": "Kancharla Vyshnavi",
+    "registerNumber": "99240041330",
+    "email": "99240041330@klu.ac.in"
+  },
+  {
+    "teamName": "BINARY BRAINS",
+    "role": "Team Leader",
+    "name": "Putluru Prashanthi",
+    "registerNumber": "99240040717",
+    "email": "99240040717@klu.ac.in"
+  },
+  {
+    "teamName": "BINARY BRAINS",
+    "role": "Team Member 1",
+    "name": "A.Sai Chandana",
+    "registerNumber": "99240041071",
+    "email": "99240041071@klu.ac.in"
+  },
+  {
+    "teamName": "BINARY BRAINS",
+    "role": "Team Member 2",
+    "name": "Patil Niharika",
+    "registerNumber": "99240040705",
+    "email": "99240040705@klu.ac.in"
+  },
+  {
+    "teamName": "BINARY BRAINS",
+    "role": "Team Member 3",
+    "name": "Puram Akhila",
+    "registerNumber": "99240040712",
+    "email": "99240040712@klu.ac.in"
+  },
+  {
+    "teamName": "Team alpha",
+    "role": "Team Leader",
+    "name": "MADDINENI BALA MARUTHI",
+    "registerNumber": "99240040608",
+    "email": "99240040608@klu.ac.in"
+  },
+  {
+    "teamName": "Team alpha",
+    "role": "Team Member 1",
+    "name": "Madem guru manith reddy",
+    "registerNumber": "99240040626",
+    "email": "99240040626@klu.ac.in"
+  },
+  {
+    "teamName": "Team alpha",
+    "role": "Team Member 2",
+    "name": "Maddirala kowsik",
+    "registerNumber": "99240040605",
+    "email": "99240040605@klu.ac.in"
+  },
+  {
+    "teamName": "Team alpha",
+    "role": "Team Member 3",
+    "name": "Madineni Shiva Charan",
+    "registerNumber": "99240040606",
+    "email": "99240040606@klu.ac.in"
+  },
+  {
+    "teamName": "Skyline stars",
+    "role": "Team Leader",
+    "name": "P Roopa",
+    "registerNumber": "99240041314",
+    "email": "99240041314@klu.ac.in"
+  },
+  {
+    "teamName": "Skyline stars",
+    "role": "Team Member 1",
+    "name": "Y Naga Sreeja",
+    "registerNumber": "99240041193",
+    "email": "99240041193@klu.ac.in"
+  },
+  {
+    "teamName": "Skyline stars",
+    "role": "Team Member 2",
+    "name": "Angadi Bhuvana",
+    "registerNumber": "9924008064",
+    "email": "9924008064@klu.ac.in"
+  },
+  {
+    "teamName": "Skyline stars",
+    "role": "Team Member 3",
+    "name": "Butra Keerthi",
+    "registerNumber": "9924005387",
+    "email": "9924005387@klu.ac.in"
+  },
+  {
+    "teamName": "404 Error",
+    "role": "Team Leader",
+    "name": "TALLURI HARSHITH",
+    "registerNumber": "9924008016",
+    "email": "9924008016@klu.ac.in"
+  },
+  {
+    "teamName": "404 Error",
+    "role": "Team Member 1",
+    "name": "SARAVAN K",
+    "registerNumber": "99240041167",
+    "email": "99240041167@klu.ac.in"
+  },
+  {
+    "teamName": "404 Error",
+    "role": "Team Member 2",
+    "name": "ASURI SAINT PAUL",
+    "registerNumber": "99240040014",
+    "email": "99240040014@klu.ac.in"
+  },
+  {
+    "teamName": "404 Error",
+    "role": "Team Member 3",
+    "name": "Kurapati Devaki Nandhan Satya sai",
+    "registerNumber": "99240040272",
+    "email": "99240040272@klu.ac.in"
+  },
+  {
+    "teamName": "Masterminds",
+    "role": "Team Leader",
+    "name": "KATTULA MADHURI",
+    "registerNumber": "99240040556",
+    "email": "99240040556@klu.ac.in"
+  },
+  {
+    "teamName": "Masterminds",
+    "role": "Team Member 1",
+    "name": "KASIREDDY REVATHI",
+    "registerNumber": "99240040551",
+    "email": "99240040551@klu.ac.in"
+  },
+  {
+    "teamName": "Masterminds",
+    "role": "Team Member 2",
+    "name": "KOMMALLOLA SNEHA SAI",
+    "registerNumber": "9924008094",
+    "email": "9924008094@klu.ac.in"
+  },
+  {
+    "teamName": "Masterminds",
+    "role": "Team Member 3",
+    "name": "A.Latha bai",
+    "registerNumber": "99240041336",
+    "email": "99240041336@klu.ac.in"
+  },
+  {
+    "teamName": "Team spirit",
+    "role": "Team Leader",
+    "name": "Thummala Jyoshna Reddy",
+    "registerNumber": "99240040991",
+    "email": "99240040991@klu.ac.in"
+  },
+  {
+    "teamName": "Team spirit",
+    "role": "Team Member 1",
+    "name": "Konda Jayasri",
+    "registerNumber": "99240040977",
+    "email": "99240040977@klu.ac.in"
+  },
+  {
+    "teamName": "Team spirit",
+    "role": "Team Member 2",
+    "name": "Tumkur Jabintaj",
+    "registerNumber": "99240040976",
+    "email": "99240040976@klu.ac.in"
+  },
+  {
+    "teamName": "Team spirit",
+    "role": "Team Member 3",
+    "name": "Keerthipati Tejeswar Raju",
+    "registerNumber": "99240040990",
+    "email": "99240040990@klu.ac.in"
+  },
+  {
+    "teamName": "Impact 4 (4members 1 massive impression )",
+    "role": "Team Leader",
+    "name": "Jujjavarapu Rishyendra",
+    "registerNumber": "99240040066",
+    "email": "99240040066@klu.ac.in"
+  },
+  {
+    "teamName": "Impact 4 (4members 1 massive impression )",
+    "role": "Team Member 1",
+    "name": "Gavvala Omsai",
+    "registerNumber": "99240040927",
+    "email": "99240040927@klu.ac.in"
+  },
+  {
+    "teamName": "Impact 4 (4members 1 massive impression )",
+    "role": "Team Member 2",
+    "name": "Jallepalli Madhu Satya Durga Akshaya",
+    "registerNumber": "9924008026",
+    "email": "9924008026@klu.ac.in"
+  },
+  {
+    "teamName": "Impact 4 (4members 1 massive impression )",
+    "role": "Team Member 3",
+    "name": "Unnam Lakshmi lavanya",
+    "registerNumber": "99240040531",
+    "email": "99240040531@klu.ac.in"
+  },
+  {
+    "teamName": "Focus!",
+    "role": "Team Leader",
+    "name": "Maddula Sai Kausiki",
+    "registerNumber": "99240041357",
+    "email": "99240041357@klu.ac.in"
+  },
+  {
+    "teamName": "Focus!",
+    "role": "Team Member 1",
+    "name": "Pallempati Vaishnavi",
+    "registerNumber": "99240041373",
+    "email": "99240041373@klu.ac.in"
+  },
+  {
+    "teamName": "Focus!",
+    "role": "Team Member 2",
+    "name": "Mohammed Shammas Uddin",
+    "registerNumber": "99240041372",
+    "email": "99240041372@klu.ac.in"
+  },
+  {
+    "teamName": "Focus!",
+    "role": "Team Member 3",
+    "name": "Kollepara Jaya Ratna Abhiram",
+    "registerNumber": "99240041379",
+    "email": "99240041379@klu.ac.in"
+  },
+  {
+    "teamName": "Versa-Verse:\"\"Versatile minds for a creative verse\"\"",
+    "role": "Team Leader",
+    "name": "Jangam Sai Kiran",
+    "registerNumber": "99240040534",
+    "email": "99240040534@klu.ac.in"
+  },
+  {
+    "teamName": "Versa-Verse:\"\"Versatile minds for a creative verse\"\"",
+    "role": "Team Member 1",
+    "name": "Sivarathri Sharath",
+    "registerNumber": "99240040826",
+    "email": "99240040826@klu.ac.in"
+  },
+  {
+    "teamName": "Versa-Verse:\"\"Versatile minds for a creative verse\"\"",
+    "role": "Team Member 2",
+    "name": "Jonnala Bharathi",
+    "registerNumber": "9924005074",
+    "email": "9924005074@klu.ac.in"
+  },
+  {
+    "teamName": "Versa-Verse:\"\"Versatile minds for a creative verse\"\"",
+    "role": "Team Member 3",
+    "name": "Jakkireddy Harshitha",
+    "registerNumber": "9924005066",
+    "email": "9924005066@klu.ac.in"
+  },
+  {
+    "teamName": "Tech Buddies",
+    "role": "Team Leader",
+    "name": "MADDELA BHARATH",
+    "registerNumber": "99240041001",
+    "email": "99240041001@klu.ac.in"
+  },
+  {
+    "teamName": "Tech Buddies",
+    "role": "Team Member 1",
+    "name": "GEVINI NAVADEEP",
+    "registerNumber": "99240040908",
+    "email": "99240040908@klu.ac.in"
+  },
+  {
+    "teamName": "Tech Buddies",
+    "role": "Team Member 2",
+    "name": "BHUMANA KAVYA SREE",
+    "registerNumber": "99240040832",
+    "email": "99240040832@klu.ac.in"
+  },
+  {
+    "teamName": "Tech Buddies",
+    "role": "Team Member 3",
+    "name": "CHAPPA LAKSHMI KEERTHANA",
+    "registerNumber": "9924008070",
+    "email": "9924008070@klu.ac.in"
+  },
+  {
+    "teamName": "Byte busters",
+    "role": "Team Leader",
+    "name": "M.Durga Bhavani",
+    "registerNumber": "99230040660",
+    "email": "99230040660@klu.ac.in"
+  },
+  {
+    "teamName": "Byte busters",
+    "role": "Team Member 1",
+    "name": "P.S.Navya Sree",
+    "registerNumber": "99240041120",
+    "email": "99240041120@klu.ac.in"
+  },
+  {
+    "teamName": "Byte busters",
+    "role": "Team Member 2",
+    "name": "P.Varshini",
+    "registerNumber": "99240041109",
+    "email": "99240041109@klu.ac.in"
+  },
+  {
+    "teamName": "Byte busters",
+    "role": "Team Member 3",
+    "name": "Pujitha.C",
+    "registerNumber": "99240041126",
+    "email": "99240041126@klu.ac.in"
+  },
+  {
+    "teamName": "Tech straks",
+    "role": "Team Leader",
+    "name": "Mamidi Jaya kumar",
+    "registerNumber": "99240040604",
+    "email": "99240040604@klu.ac.in"
+  },
+  {
+    "teamName": "Tech straks",
+    "role": "Team Member 1",
+    "name": "Maddha Chandra Prabha",
+    "registerNumber": "99240040613",
+    "email": "99240040613@klu.ac.in"
+  },
+  {
+    "teamName": "Tech straks",
+    "role": "Team Member 2",
+    "name": "Muppalla Niharika",
+    "registerNumber": "99240040641",
+    "email": "99240040641@klu.ac.in"
+  },
+  {
+    "teamName": "Tech straks",
+    "role": "Team Member 3",
+    "name": "Kuncham Akash jyothi",
+    "registerNumber": "9924005218",
+    "email": "9924005218@klu.ac.in"
+  },
+  {
+    "teamName": "MindCrafters",
+    "role": "Team Leader",
+    "name": "KOTIPALLI NAGA SATYA SRI TEJASWINI",
+    "registerNumber": "99240040588",
+    "email": "99240040588@klu.ac.in"
+  },
+  {
+    "teamName": "MindCrafters",
+    "role": "Team Member 1",
+    "name": "KOTHA BHAVANA",
+    "registerNumber": "99240040575",
+    "email": "99240040575@klu.ac.in"
+  },
+  {
+    "teamName": "MindCrafters",
+    "role": "Team Member 2",
+    "name": "KUMMARA PRATHYUSHA",
+    "registerNumber": "99240040593",
+    "email": "99240040593@klu.ac.in"
+  },
+  {
+    "teamName": "MindCrafters",
+    "role": "Team Member 3",
+    "name": "BHEEMIREDDY DIVYASREE",
+    "registerNumber": "99240041324",
+    "email": "99240041324@klu.ac.in"
+  },
+  {
+    "teamName": "TECH TITANS",
+    "role": "Team Leader",
+    "name": "P LIKITH RAJ",
+    "registerNumber": "99240041007",
+    "email": "99240041007@klu.ac.in"
+  },
+  {
+    "teamName": "TECH TITANS",
+    "role": "Team Member 1",
+    "name": "KAMALA RISHIK",
+    "registerNumber": "99240040966",
+    "email": "99240040966@klu.ac.in"
+  },
+  {
+    "teamName": "TECH TITANS",
+    "role": "Team Member 2",
+    "name": "MADDHA CHANDRA LEKHA",
+    "registerNumber": "99240041003",
+    "email": "99240041003@klu.ac.in"
+  },
+  {
+    "teamName": "TECH TITANS",
+    "role": "Team Member 3",
+    "name": "LAKKIREDDY HARSHITHA",
+    "registerNumber": "99240041015",
+    "email": "99240041015@klu.ac.in"
+  },
+  {
+    "teamName": "TEAM TARGEYRYEN",
+    "role": "Team Leader",
+    "name": "Nadipilli Rajesh",
+    "registerNumber": "99240041058",
+    "email": "99240041058@klu.ac.in"
+  },
+  {
+    "teamName": "TEAM TARGEYRYEN",
+    "role": "Team Member 1",
+    "name": "Nekkanti Harsha Vardhan",
+    "registerNumber": "99240041076",
+    "email": "99240041076@klu.ac.in"
+  },
+  {
+    "teamName": "TEAM TARGEYRYEN",
+    "role": "Team Member 2",
+    "name": "K Tejeshwar reddy",
+    "registerNumber": "99240040478",
+    "email": "99240040478@klu.ac.in"
+  },
+  {
+    "teamName": "TEAM TARGEYRYEN",
+    "role": "Team Member 3",
+    "name": "Uppucharla Poorna Lakshmi Narayana",
+    "registerNumber": "99240040485",
+    "email": "99240040485@klu.ac.in"
+  },
+  {
+    "teamName": "Shouryanga",
+    "role": "Team Leader",
+    "name": "DHARANI KOTA VENKATA SUMANTH SAI",
+    "registerNumber": "99240040434",
+    "email": "99240040434@klu.ac.in"
+  },
+  {
+    "teamName": "Shouryanga",
+    "role": "Team Member 1",
+    "name": "KULLURU PUNEETH KUMAR",
+    "registerNumber": "99240041079",
+    "email": "99240041079@klu.ac.in"
+  },
+  {
+    "teamName": "Shouryanga",
+    "role": "Team Member 2",
+    "name": "Vuppala Revanth Gupta",
+    "registerNumber": "99240041077",
+    "email": "99240041077@klu.ac.in"
+  },
+  {
+    "teamName": "Shouryanga",
+    "role": "Team Member 3",
+    "name": "NARISETTI HEMA SEDHARDH",
+    "registerNumber": "99240040672",
+    "email": "99240040672@klu.ac.in"
+  },
+  {
+    "teamName": "Ivory aura",
+    "role": "Team Leader",
+    "name": "Narapareddy susmitha",
+    "registerNumber": "9925051074",
+    "email": "9925051074@klu.ac.in"
+  },
+  {
+    "teamName": "Ivory aura",
+    "role": "Team Member 1",
+    "name": "Nayudori venkata Sai varshitha",
+    "registerNumber": "9925051075",
+    "email": "9925051075@klu.ac.in"
+  },
+  {
+    "teamName": "Ivory aura",
+    "role": "Team Member 2",
+    "name": "Pamarthi jhansi priyadarshini",
+    "registerNumber": "99250040526",
+    "email": "99250040526@klu.ac.in"
+  },
+  {
+    "teamName": "Ivory aura",
+    "role": "Team Member 3",
+    "name": "Potru pujitha",
+    "registerNumber": "99250040562",
+    "email": "99250040562@klu.ac.in"
+  },
+  {
+    "teamName": "Four Hitters",
+    "role": "Team Leader",
+    "name": "Vankadara Rakesh",
+    "registerNumber": "99240041223",
+    "email": "99240041223@klu.ac.in"
+  },
+  {
+    "teamName": "Four Hitters",
+    "role": "Team Member 1",
+    "name": "Chinnapu Reddy Tharun Kumar Reddy",
+    "registerNumber": "99240040368",
+    "email": "99240040368@klu.ac.in"
+  },
+  {
+    "teamName": "Four Hitters",
+    "role": "Team Member 2",
+    "name": "Narra Ravindra Reddy",
+    "registerNumber": "99240040052",
+    "email": "99240040052@klu.ac.in"
+  },
+  {
+    "teamName": "Four Hitters",
+    "role": "Team Member 3",
+    "name": "Kilari Vishnu",
+    "registerNumber": "99240040265",
+    "email": "99240040265@klu.ac.in"
+  },
+  {
+    "teamName": "Crtl C Crtl V",
+    "role": "Team Leader",
+    "name": "Balu Vishesh Chowdary",
+    "registerNumber": "99240040376",
+    "email": "99240040376@klu.ac.in"
+  },
+  {
+    "teamName": "Crtl C Crtl V",
+    "role": "Team Member 1",
+    "name": "A. Nanda Kishor Reddy",
+    "registerNumber": "99240040377",
+    "email": "99240040377@klu.ac.in"
+  },
+  {
+    "teamName": "Crtl C Crtl V",
+    "role": "Team Member 2",
+    "name": "Sanjeev",
+    "registerNumber": "99240041036",
+    "email": "99240041036@klu.ac.in"
+  },
+  {
+    "teamName": "Crtl C Crtl V",
+    "role": "Team Member 3",
+    "name": "V. Yatheesh Chandra",
+    "registerNumber": "99240040113",
+    "email": "99240040113@klu.ac.in"
+  },
+  {
+    "teamName": "Team varanasi",
+    "role": "Team Leader",
+    "name": "Botcha Lokesh",
+    "registerNumber": "99240040395",
+    "email": "99240040395@klu.ac.in"
+  },
+  {
+    "teamName": "Team varanasi",
+    "role": "Team Member 1",
+    "name": "Boyilla lokesh reddy",
+    "registerNumber": "99240040415",
+    "email": "99240040415@klu.ac.in"
+  },
+  {
+    "teamName": "Team varanasi",
+    "role": "Team Member 2",
+    "name": "Avugadda bhargav",
+    "registerNumber": "99240040370",
+    "email": "99240040370@klu.ac.in"
+  },
+  {
+    "teamName": "Team varanasi",
+    "role": "Team Member 3",
+    "name": "Vishnu Vardhan sudarshi",
+    "registerNumber": "99240040585",
+    "email": "99240040585@klu.ac.in"
+  },
+  {
+    "teamName": "Team Paradise",
+    "role": "Team Leader",
+    "name": "Bagi Venkat Reddy",
+    "registerNumber": "99240040018",
+    "email": "99240040018@klu.ac.in"
+  },
+  {
+    "teamName": "Team Paradise",
+    "role": "Team Member 1",
+    "name": "Bonaboina Jagan Mohan",
+    "registerNumber": "99240040425",
+    "email": "99240040425@klu.ac.in"
+  },
+  {
+    "teamName": "Team Paradise",
+    "role": "Team Member 2",
+    "name": "Ayinavill Krishna Pradeep",
+    "registerNumber": "99240040391",
+    "email": "99240040391@klu.ac.in"
+  },
+  {
+    "teamName": "Team Paradise",
+    "role": "Team Member 3",
+    "name": "Sathvik Kilari",
+    "registerNumber": "9924005292",
+    "email": "9924005292@klu.ac.in"
+  },
+  {
+    "teamName": "Vortex titan",
+    "role": "Team Leader",
+    "name": "Mutyala siva krishna",
+    "registerNumber": "99240041054",
+    "email": "99240041054@klu.ac.in"
+  },
+  {
+    "teamName": "Vortex titan",
+    "role": "Team Member 1",
+    "name": "N.Kiran teja",
+    "registerNumber": "99240041069",
+    "email": "99240041069@klu.ac.in"
+  },
+  {
+    "teamName": "Vortex titan",
+    "role": "Team Member 2",
+    "name": "Palagani Ganesh Durga rao",
+    "registerNumber": "99240041164",
+    "email": "99240041164@klu.ac.in"
+  },
+  {
+    "teamName": "Vortex titan",
+    "role": "Team Member 3",
+    "name": "N.Sai sharan tej",
+    "registerNumber": "99240041070",
+    "email": "99240041070@klu.ac.in"
   }
 ]

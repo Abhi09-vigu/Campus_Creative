@@ -10,6 +10,20 @@ function UserLogin() {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
+    const normalizeTeamId = (name) => (name || '').trim().toLowerCase();
+
+    const toDisplayRole = (role) => {
+        const value = (role || '').trim().toLowerCase();
+        if (!value) return '';
+        if (value.includes('leader')) return 'Lead';
+
+        const memberMatch = value.match(/member\s*(\d+)/);
+        if (memberMatch?.[1]) return `Member ${memberMatch[1]}`;
+
+        if (value.startsWith('team member')) return (role || '').replace(/team\s+/i, '');
+        return role;
+    };
+
     const handleLogin = async (e) => {
         e.preventDefault();
         setError('');
@@ -17,14 +31,31 @@ function UserLogin() {
 
         try {
             const normalized = teamName.trim().toLowerCase();
-            const user = users.find(u => (u.name || '').trim().toLowerCase() === normalized);
-            if (!user) {
+            const members = users.filter(u => (u.teamName || '').trim().toLowerCase() === normalized);
+            if (!members.length) {
                 setError('Invalid team name');
                 return;
             }
 
-            localStorage.setItem('userToken', user.id);
-            localStorage.setItem('userData', JSON.stringify({ id: user.id, name: user.name }));
+            const canonicalTeamName = members[0]?.teamName || teamName.trim();
+            const teamId = normalizeTeamId(canonicalTeamName);
+            const leaderEmail = members.find((m) => (m.role || '').toLowerCase().includes('leader'))?.email || '';
+
+            localStorage.setItem('userToken', teamId);
+            localStorage.setItem(
+                'userData',
+                JSON.stringify({
+                    id: teamId,
+                    name: canonicalTeamName,
+                    email: leaderEmail,
+                    teamMembers: members.map((m) => ({
+                        role: toDisplayRole(m.role),
+                        name: m.name,
+                        registerNumber: m.registerNumber,
+                        email: m.email
+                    }))
+                })
+            );
             navigate('/user/dashboard');
         } catch (err) {
             setError('Login failed. Please try again.');

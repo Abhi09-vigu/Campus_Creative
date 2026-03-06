@@ -14,6 +14,7 @@ function UserDashboard() {
     const token = localStorage.getItem('userToken');
     const userDataStr = localStorage.getItem('userData');
     const userData = userDataStr ? JSON.parse(userDataStr) : null;
+    const teamMembers = Array.isArray(userData?.teamMembers) ? userData.teamMembers : [];
 
     useEffect(() => {
         if (!token) {
@@ -165,93 +166,122 @@ function UserDashboard() {
                         <p className="text-gray-500 dark:text-gray-400 font-medium animate-pulse">Syncing mainframe...</p>
                     </div>
                 ) : (
-                    <motion.div
-                        variants={containerVars}
-                        initial="hidden"
-                        animate="show"
-                        className="glass rounded-3xl overflow-hidden"
-                    >
-                        {/* Table header */}
-                        <div className="hidden sm:grid grid-cols-12 gap-4 px-6 py-4 text-xs font-extrabold tracking-widest text-slate-600 border-b border-white/15">
-                            <div className="col-span-3">Status</div>
-                            <div className="col-span-7">Problem Statement</div>
-                            <div className="col-span-2 text-right">Action</div>
-                        </div>
+                    <>
+                        <motion.div
+                            variants={containerVars}
+                            initial="hidden"
+                            animate="show"
+                            className="glass rounded-3xl overflow-hidden"
+                        >
+                            {/* Table header */}
+                            <div className="hidden sm:grid grid-cols-12 gap-4 px-6 py-4 text-xs font-extrabold tracking-widest text-slate-600 border-b border-white/15">
+                                <div className="col-span-3">Status</div>
+                                <div className="col-span-7">Problem Statement</div>
+                                <div className="col-span-2 text-right">Action</div>
+                            </div>
 
-                        <div className="p-4 sm:p-6 space-y-4">
-                            {(userSelection ? problems.filter((p) => p.id === userSelection) : problems).map((p) => {
-                                const isSelectedByMe = userSelection === p.id;
-                                const isLocked = Boolean(userSelection) && !isSelectedByMe;
-                                const isDisabled = isLocked || selectingId === p.id || isSelectedByMe;
+                            <div className="p-4 sm:p-6 space-y-4">
+                                {(userSelection ? problems.filter((p) => p.id === userSelection) : problems).map((p) => {
+                                    const isSelectedByMe = userSelection === p.id;
+                                    const isLocked = Boolean(userSelection) && !isSelectedByMe;
+                                    const isDisabled = isLocked || selectingId === p.id || isSelectedByMe;
 
-                                return (
-                                    <motion.div
-                                        key={p.id}
-                                        variants={itemVars}
-                                        className={`glass rounded-2xl border border-white/15 overflow-hidden ${isSelectedByMe ? 'ring-1 ring-emerald-400/40' : ''}`}
-                                    >
-                                        <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center px-5 sm:px-6 py-5">
-                                            {/* Status */}
-                                            <div className="sm:col-span-3 flex items-center gap-3">
-                                                <span className={`w-2.5 h-2.5 rounded-full ${isLocked ? 'bg-slate-300' : 'bg-emerald-400'}`} />
-                                                <span
-                                                    className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold tracking-widest border
-                                                        ${isLocked
-                                                            ? 'bg-slate-100 text-slate-500 border-slate-200'
-                                                            : 'bg-emerald-50/80 text-emerald-700 border-emerald-200'}
-                                                    `}
-                                                >
-                                                    {isLocked ? 'Locked' : 'Available'}
-                                                </span>
-                                            </div>
-
-                                            {/* Problem */}
-                                            <div className="sm:col-span-7 min-w-0">
-                                                <div className="text-lg font-extrabold tracking-wide text-slate-900 truncate">
-                                                    {p.title}
+                                    return (
+                                        <motion.div
+                                            key={p.id}
+                                            variants={itemVars}
+                                            className={`glass rounded-2xl border border-white/15 overflow-hidden ${isSelectedByMe ? 'ring-1 ring-emerald-400/40' : ''}`}
+                                        >
+                                            <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center px-5 sm:px-6 py-5">
+                                                {/* Status */}
+                                                <div className="sm:col-span-3 flex items-center gap-3">
+                                                    <span className={`w-2.5 h-2.5 rounded-full ${isLocked ? 'bg-slate-300' : 'bg-emerald-400'}`} />
+                                                    <span
+                                                        className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold tracking-widest border
+                                                            ${isLocked
+                                                                ? 'bg-slate-100 text-slate-500 border-slate-200'
+                                                                : 'bg-emerald-50/80 text-emerald-700 border-emerald-200'}
+                                                        `}
+                                                    >
+                                                        {isLocked ? 'Locked' : 'Available'}
+                                                    </span>
                                                 </div>
-                                                <div className="mt-1 text-sm text-slate-600 wrap-break-word">
-                                                    {p.description}
+
+                                                {/* Problem */}
+                                                <div className="sm:col-span-7 min-w-0">
+                                                    <div className="text-lg font-extrabold tracking-wide text-slate-900 truncate">
+                                                        {p.title}
+                                                    </div>
+                                                    <div className="mt-1 text-sm text-slate-600 wrap-break-word">
+                                                        {p.description}
+                                                    </div>
+                                                </div>
+
+                                                {/* Action */}
+                                                <div className="sm:col-span-2 flex sm:justify-end">
+                                                    <button
+                                                        onClick={() => handleSelectProblem(p.id)}
+                                                        disabled={isDisabled}
+                                                        className={`btn-primary px-7 py-3 rounded-xl font-bold transition-all duration-300 transform tracking-widest text-xs border border-slate-200/60
+                                                            ${isDisabled ? 'cursor-not-allowed active:scale-100' : 'active:scale-95'}
+                                                            ${isSelectedByMe ? 'opacity-80' : ''}
+                                                            ${isLocked ? 'opacity-45' : ''}
+                                                            ${selectingId === p.id ? 'opacity-70' : ''}
+                                                        `}
+                                                    >
+                                                        {selectingId === p.id
+                                                            ? 'Selecting...'
+                                                            : isSelectedByMe
+                                                                ? 'Selected'
+                                                                : isLocked
+                                                                    ? 'Already Selected'
+                                                                    : 'Select'}
+                                                    </button>
                                                 </div>
                                             </div>
+                                        </motion.div>
+                                    );
+                                })}
+                            </div>
 
-                                            {/* Action */}
-                                            <div className="sm:col-span-2 flex sm:justify-end">
-                                                <button
-                                                    onClick={() => handleSelectProblem(p.id)}
-                                                    disabled={isDisabled}
-                                                    className={`btn-primary px-7 py-3 rounded-xl font-bold transition-all duration-300 transform tracking-widest text-xs border border-slate-200/60
-                                                        ${isDisabled ? 'cursor-not-allowed active:scale-100' : 'active:scale-95'}
-                                                        ${isSelectedByMe ? 'opacity-80' : ''}
-                                                        ${isLocked ? 'opacity-45' : ''}
-                                                        ${selectingId === p.id ? 'opacity-70' : ''}
-                                                    `}
-                                                >
-                                                    {selectingId === p.id
-                                                        ? 'Selecting...'
-                                                        : isSelectedByMe
-                                                            ? 'Selected'
-                                                            : isLocked
-                                                                ? 'Already Selected'
-                                                                : 'Select'}
-                                                </button>
+                            {problems.length === 0 && (
+                                <motion.div variants={itemVars} className="col-span-full py-20">
+                                    <div className="glass max-w-md mx-auto rounded-3xl p-8 text-center border-dashed border-2 border-gray-300 dark:border-dark-border">
+                                        <div className="text-4xl mb-4">📡</div>
+                                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">No Signals Detected</h3>
+                                        <p className="text-gray-500 dark:text-gray-400 text-sm">Organizers have not deployed any active directives yet. Stand by.</p>
+                                    </div>
+                                </motion.div>
+                            )}
+                        </motion.div>
+
+                        {teamMembers.length > 0 && (
+                            <div className="glass rounded-3xl overflow-hidden mt-6">
+                                <div className="px-6 py-4 text-xs font-extrabold tracking-widest text-slate-600 border-b border-white/15">
+                                    Team Members
+                                </div>
+
+                                <div className="p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    {teamMembers.map((member) => (
+                                        <div key={member.role} className="glass rounded-2xl border border-white/15 p-4">
+                                            <div className="text-[11px] font-extrabold tracking-widest text-slate-500">
+                                                {member.role}
+                                            </div>
+                                            <div className="mt-1 text-lg font-extrabold tracking-wide text-slate-900">
+                                                {member.name}
+                                            </div>
+                                            <div className="text-sm text-slate-600">
+                                                Register No: {member.registerNumber}
+                                            </div>
+                                            <div className="text-sm text-slate-600">
+                                                Email: {member.email}
                                             </div>
                                         </div>
-                                    </motion.div>
-                                );
-                            })}
-                        </div>
-
-                        {problems.length === 0 && (
-                            <motion.div variants={itemVars} className="col-span-full py-20">
-                                <div className="glass max-w-md mx-auto rounded-3xl p-8 text-center border-dashed border-2 border-gray-300 dark:border-dark-border">
-                                    <div className="text-4xl mb-4">📡</div>
-                                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">No Signals Detected</h3>
-                                    <p className="text-gray-500 dark:text-gray-400 text-sm">Organizers have not deployed any active directives yet. Stand by.</p>
+                                    ))}
                                 </div>
-                            </motion.div>
+                            </div>
                         )}
-                    </motion.div>
+                    </>
                 )}
             </main>
         </div>
