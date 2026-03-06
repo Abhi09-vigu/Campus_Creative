@@ -33,6 +33,24 @@ const adminViewModeSchema = z.object({
     viewMode: z.boolean()
 });
 
+const adminCreateMarksRoundSchema = z.object({
+    name: z.string().trim().min(1).max(80)
+});
+
+const marksCriteriaSchema = z.object({
+    clarity: z.coerce.number().min(0).max(10),
+    relevance: z.coerce.number().min(0).max(10),
+    technical: z.coerce.number().min(0).max(10),
+    prototype: z.coerce.number().min(0).max(10)
+});
+
+const adminUpdateMarksSchema = z
+    .object({
+        roundId: z.string().trim().min(1).max(128),
+        total: z.coerce.number().min(0).max(10),
+        criteria: marksCriteriaSchema.optional()
+    });
+
 const userLoginSchema = z.object({
     teamName: z.string().trim().min(1).max(200)
 });
@@ -43,5 +61,7 @@ module.exports = {
     selectProblemSchema,
     adminLoginSchema,
     adminViewModeSchema,
+    adminCreateMarksRoundSchema,
+    adminUpdateMarksSchema,
     userLoginSchema
 };

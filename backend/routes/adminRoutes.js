@@ -4,8 +4,9 @@ const { requireAdmin } = require('../middleware/auth');
 const Problem = require('../models/Problem');
 const Settings = require('../models/Settings');
 const Selection = require('../models/Selection');
+const Marks = require('../models/Marks');
 const rateLimit = require('express-rate-limit');
-const { validateBody, adminAddProblemSchema, adminLoginSchema, adminViewModeSchema } = require('../utils/validate');
+const { validateBody, adminAddProblemSchema, adminLoginSchema, adminViewModeSchema, adminUpdateMarksSchema, adminCreateMarksRoundSchema } = require('../utils/validate');
 
 const adminAuthLimiter = rateLimit({
     windowMs: 60 * 1000,
@@ -32,15 +33,93 @@ router.use(requireAdmin);
 async function getGlobalSettings() {
     return Settings.findOneAndUpdate(
         { key: 'global' },
-        { $setOnInsert: { key: 'global', viewMode: false } },
+        { $setOnInsert: { key: 'global', viewMode: false, marksRounds: [], activeMarksRoundId: '' } },
         { new: true, upsert: true }
     ).lean();
+}
+
+async function ensureMarksSettings() {
+    const settings = await Settings.findOneAndUpdate(
+        { key: 'global' },
+        { $setOnInsert: { key: 'global', viewMode: false, marksRounds: [], activeMarksRoundId: '' } },
+        { new: true, upsert: true }
+    );
+
+    const rounds = Array.isArray(settings.marksRounds) ? settings.marksRounds : [];
+    const activeRoundId = String(settings.activeMarksRoundId || '').trim();
+    const activeStillExists = rounds.some((r) => String(r?.id || '').trim() === activeRoundId);
+
+    if (!activeStillExists) {
+        settings.activeMarksRoundId = rounds[0]?.id || '';
+        await settings.save();
+    }
+
+    return settings.toObject();
+}
+
+async function computeTotalMarksForUser(userId) {
+    const rows = await Marks.aggregate([
+        { $match: { userId: String(userId) } },
+        { $group: { _id: '$userId', sum: { $sum: '$total' } } }
+    ]);
+    return rows?.[0]?.sum ?? 0;
 }
 
 // GET /api/admin/settings
 router.get('/settings', async (req, res) => {
     const settings = await getGlobalSettings();
     res.json({ viewMode: Boolean(settings.viewMode) });
+});
+
+// GET /api/admin/marks/rounds
+router.get('/marks/rounds', async (req, res) => {
+    const settings = await ensureMarksSettings();
+    res.json({ rounds: settings.marksRounds || [], activeRoundId: settings.activeMarksRoundId || '' });
+});
+
+// POST /api/admin/marks/rounds
+router.post('/marks/rounds', validateBody(adminCreateMarksRoundSchema), async (req, res) => {
+    const settings = await ensureMarksSettings();
+    const existing = Array.isArray(settings.marksRounds) ? settings.marksRounds : [];
+    const { name } = req.body;
+
+    const nextIndex = existing.length + 1;
+    const id = `round_${Date.now().toString(36)}_${Math.random().toString(16).slice(2, 6)}`;
+    const createdAt = new Date();
+    const roundName = String(name || '').trim() || `Round ${nextIndex}`;
+
+    const updated = await Settings.findOneAndUpdate(
+        { key: 'global' },
+        {
+            $push: { marksRounds: { id, name: roundName, createdAt } },
+            $set: { activeMarksRoundId: id }
+        },
+        { new: true, upsert: true }
+    ).lean();
+
+    // Initialize this round in the separate marks collection for all existing selections.
+    const selectionUserIds = await Selection.distinct('userId', {});
+    const ops = (selectionUserIds || []).map((uid) => ({
+        updateOne: {
+            filter: { userId: String(uid), roundId: String(id) },
+            update: {
+                $setOnInsert: {
+                    userId: String(uid),
+                    roundId: String(id),
+                    roundName,
+                    total: 0,
+                    criteria: { clarity: 0, relevance: 0, technical: 0, prototype: 0 },
+                    updatedAt: new Date()
+                }
+            },
+            upsert: true
+        }
+    }));
+    if (ops.length > 0) {
+        await Marks.bulkWrite(ops, { ordered: false });
+    }
+
+    res.status(201).json({ message: 'Round created', round: { id, name: roundName, createdAt }, rounds: updated?.marksRounds || [], activeRoundId: updated?.activeMarksRoundId || id });
 });
 
 // PATCH /api/admin/settings/view-mode
@@ -99,7 +178,84 @@ router.get('/problems', async (req, res) => {
 // GET /api/admin/selections
 router.get('/selections', async (req, res) => {
     const selections = await Selection.find({}).sort({ timestamp: -1 }).lean();
-    res.json(selections);
+
+    const userIds = selections.map((s) => String(s.userId)).filter(Boolean);
+    const marksRows = userIds.length
+        ? await Marks.find({ userId: { $in: userIds } })
+            .select({ userId: 1, roundId: 1, roundName: 1, total: 1, criteria: 1, updatedAt: 1 })
+            .lean()
+        : [];
+
+    const byUser = new Map();
+    for (const row of marksRows) {
+        const uid = String(row.userId);
+        if (!byUser.has(uid)) byUser.set(uid, {});
+        byUser.get(uid)[String(row.roundId)] = {
+            total: row.total,
+            criteria: row.criteria,
+            roundName: row.roundName,
+            updatedAt: row.updatedAt
+        };
+    }
+
+    const hydrated = selections.map((s) => ({
+        ...s,
+        marksByRound: byUser.get(String(s.userId)) || {}
+    }));
+
+    res.json(hydrated);
+});
+
+// PATCH /api/admin/selections/:userId/marks
+router.patch('/selections/:userId/marks', validateBody(adminUpdateMarksSchema), async (req, res) => {
+    const { userId } = req.params;
+    const { roundId, total, criteria } = req.body;
+
+    const selection = await Selection.findOne({ userId: String(userId) }).lean();
+    if (!selection) return res.status(404).json({ message: 'Selection not found' });
+
+    const settings = await ensureMarksSettings();
+    const rounds = Array.isArray(settings.marksRounds) ? settings.marksRounds : [];
+    const roundMeta = rounds.find((r) => String(r?.id || '') === String(roundId));
+    const roundName = String(roundMeta?.name || '').trim() || 'Round';
+
+    const safeCriteria = criteria || { clarity: 0, relevance: 0, technical: 0, prototype: 0 };
+    const updatedAt = new Date();
+
+    await Marks.findOneAndUpdate(
+        { userId: String(userId), roundId: String(roundId) },
+        {
+            $set: {
+                roundName,
+                total,
+                criteria: safeCriteria,
+                updatedAt
+            }
+        },
+        { new: true, upsert: true }
+    ).lean();
+
+    const totalMarks = await computeTotalMarksForUser(String(userId));
+    const updatedSelection = await Selection.findOneAndUpdate(
+        { userId: String(userId) },
+        { $set: { totalMarks, marks: totalMarks } },
+        { new: true }
+    ).lean();
+
+    const userMarks = await Marks.find({ userId: String(userId) })
+        .select({ roundId: 1, roundName: 1, total: 1, criteria: 1, updatedAt: 1 })
+        .lean();
+    const marksByRound = {};
+    for (const row of userMarks) {
+        marksByRound[String(row.roundId)] = {
+            total: row.total,
+            criteria: row.criteria,
+            roundName: row.roundName,
+            updatedAt: row.updatedAt
+        };
+    }
+
+    res.json({ message: 'Marks updated', selection: { ...updatedSelection, marksByRound } });
 });
 
 module.exports = router;
