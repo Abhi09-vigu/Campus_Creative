@@ -47,8 +47,13 @@ const marksCriteriaSchema = z.object({
 const adminUpdateMarksSchema = z
     .object({
         roundId: z.string().trim().min(1).max(128),
-        total: z.coerce.number().min(0).max(10),
+        // Accept either the new 0–10 total or a legacy 0–40 total.
+        // Server will normalize to 0–10 when persisting.
+        total: z.coerce.number().min(0).max(40).optional(),
         criteria: marksCriteriaSchema.optional()
+    })
+    .refine((v) => v.criteria != null || v.total != null, {
+        message: 'Provide criteria or total'
     });
 
 const userLoginSchema = z.object({

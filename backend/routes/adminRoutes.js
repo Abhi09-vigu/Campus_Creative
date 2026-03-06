@@ -30,6 +30,32 @@ router.post('/login', adminAuthLimiter, validateBody(adminLoginSchema), (req, re
 // Protect all other admin routes
 router.use(requireAdmin);
 
+function clampInt(value, min, max) {
+    const n = Number.isFinite(Number(value)) ? Math.round(Number(value)) : 0;
+    return Math.max(min, Math.min(max, n));
+}
+
+function computeRoundTotalOutOf10(criteria, total) {
+    // Preferred: derive from criteria (each 0..10) => average out of 10.
+    if (criteria && typeof criteria === 'object') {
+        const sum =
+            clampInt(criteria.clarity, 0, 10) +
+            clampInt(criteria.relevance, 0, 10) +
+            clampInt(criteria.technical, 0, 10) +
+            clampInt(criteria.prototype, 0, 10);
+        return clampInt(Math.round(sum / 4), 0, 10);
+    }
+
+    // Fallback: accept a legacy 0..40 total and normalize to 0..10.
+    if (typeof total === 'number') {
+        const rounded = Math.round(total);
+        if (rounded > 10) return clampInt(Math.round(rounded / 4), 0, 10);
+        return clampInt(rounded, 0, 10);
+    }
+
+    return 0;
+}
+
 async function getGlobalSettings() {
     return Settings.findOneAndUpdate(
         { key: 'global' },
@@ -73,53 +99,68 @@ router.get('/settings', async (req, res) => {
 
 // GET /api/admin/marks/rounds
 router.get('/marks/rounds', async (req, res) => {
-    const settings = await ensureMarksSettings();
-    res.json({ rounds: settings.marksRounds || [], activeRoundId: settings.activeMarksRoundId || '' });
+    try {
+        const settings = await ensureMarksSettings();
+        res.json({ rounds: settings.marksRounds || [], activeRoundId: settings.activeMarksRoundId || '' });
+    } catch (err) {
+        req.log?.error({ err }, 'Failed to load marks rounds');
+        res.status(500).json({ message: 'Failed to load marks rounds' });
+    }
 });
 
 // POST /api/admin/marks/rounds
 router.post('/marks/rounds', validateBody(adminCreateMarksRoundSchema), async (req, res) => {
-    const settings = await ensureMarksSettings();
-    const existing = Array.isArray(settings.marksRounds) ? settings.marksRounds : [];
-    const { name } = req.body;
+    try {
+        const settings = await ensureMarksSettings();
+        const existing = Array.isArray(settings.marksRounds) ? settings.marksRounds : [];
+        const { name } = req.body;
 
-    const nextIndex = existing.length + 1;
-    const id = `round_${Date.now().toString(36)}_${Math.random().toString(16).slice(2, 6)}`;
-    const createdAt = new Date();
-    const roundName = String(name || '').trim() || `Round ${nextIndex}`;
+        const nextIndex = existing.length + 1;
+        const id = `round_${Date.now().toString(36)}_${Math.random().toString(16).slice(2, 6)}`;
+        const createdAt = new Date();
+        const roundName = String(name || '').trim() || `Round ${nextIndex}`;
 
-    const updated = await Settings.findOneAndUpdate(
-        { key: 'global' },
-        {
-            $push: { marksRounds: { id, name: roundName, createdAt } },
-            $set: { activeMarksRoundId: id }
-        },
-        { new: true, upsert: true }
-    ).lean();
-
-    // Initialize this round in the separate marks collection for all existing selections.
-    const selectionUserIds = await Selection.distinct('userId', {});
-    const ops = (selectionUserIds || []).map((uid) => ({
-        updateOne: {
-            filter: { userId: String(uid), roundId: String(id) },
-            update: {
-                $setOnInsert: {
-                    userId: String(uid),
-                    roundId: String(id),
-                    roundName,
-                    total: 0,
-                    criteria: { clarity: 0, relevance: 0, technical: 0, prototype: 0 },
-                    updatedAt: new Date()
-                }
+        const updated = await Settings.findOneAndUpdate(
+            { key: 'global' },
+            {
+                $push: { marksRounds: { id, name: roundName, createdAt } },
+                $set: { activeMarksRoundId: id }
             },
-            upsert: true
-        }
-    }));
-    if (ops.length > 0) {
-        await Marks.bulkWrite(ops, { ordered: false });
-    }
+            { new: true, upsert: true }
+        ).lean();
 
-    res.status(201).json({ message: 'Round created', round: { id, name: roundName, createdAt }, rounds: updated?.marksRounds || [], activeRoundId: updated?.activeMarksRoundId || id });
+        // Initialize this round in the separate marks collection for all existing selections.
+        const selectionUserIds = await Selection.distinct('userId', {});
+        const ops = (selectionUserIds || []).map((uid) => ({
+            updateOne: {
+                filter: { userId: String(uid), roundId: String(id) },
+                update: {
+                    $setOnInsert: {
+                        userId: String(uid),
+                        roundId: String(id),
+                        roundName,
+                        total: 0,
+                        criteria: { clarity: 0, relevance: 0, technical: 0, prototype: 0 },
+                        updatedAt: new Date()
+                    }
+                },
+                upsert: true
+            }
+        }));
+        if (ops.length > 0) {
+            await Marks.bulkWrite(ops, { ordered: false });
+        }
+
+        res.status(201).json({
+            message: 'Round created',
+            round: { id, name: roundName, createdAt },
+            rounds: updated?.marksRounds || [],
+            activeRoundId: updated?.activeMarksRoundId || id
+        });
+    } catch (err) {
+        req.log?.error({ err }, 'Failed to create marks round');
+        res.status(500).json({ message: 'Failed to create marks round' });
+    }
 });
 
 // PATCH /api/admin/settings/view-mode
@@ -208,54 +249,60 @@ router.get('/selections', async (req, res) => {
 
 // PATCH /api/admin/selections/:userId/marks
 router.patch('/selections/:userId/marks', validateBody(adminUpdateMarksSchema), async (req, res) => {
-    const { userId } = req.params;
-    const { roundId, total, criteria } = req.body;
+    try {
+        const { userId } = req.params;
+        const { roundId, total, criteria } = req.body;
 
-    const selection = await Selection.findOne({ userId: String(userId) }).lean();
-    if (!selection) return res.status(404).json({ message: 'Selection not found' });
+        const selection = await Selection.findOne({ userId: String(userId) }).lean();
+        if (!selection) return res.status(404).json({ message: 'Selection not found' });
 
-    const settings = await ensureMarksSettings();
-    const rounds = Array.isArray(settings.marksRounds) ? settings.marksRounds : [];
-    const roundMeta = rounds.find((r) => String(r?.id || '') === String(roundId));
-    const roundName = String(roundMeta?.name || '').trim() || 'Round';
+        const settings = await ensureMarksSettings();
+        const rounds = Array.isArray(settings.marksRounds) ? settings.marksRounds : [];
+        const roundMeta = rounds.find((r) => String(r?.id || '') === String(roundId));
+        const roundName = String(roundMeta?.name || '').trim() || 'Round';
 
-    const safeCriteria = criteria || { clarity: 0, relevance: 0, technical: 0, prototype: 0 };
-    const updatedAt = new Date();
+        const safeCriteria = criteria || { clarity: 0, relevance: 0, technical: 0, prototype: 0 };
+        const normalizedTotal = computeRoundTotalOutOf10(safeCriteria, total);
+        const updatedAt = new Date();
 
-    await Marks.findOneAndUpdate(
-        { userId: String(userId), roundId: String(roundId) },
-        {
-            $set: {
-                roundName,
-                total,
-                criteria: safeCriteria,
-                updatedAt
-            }
-        },
-        { new: true, upsert: true }
-    ).lean();
+        await Marks.findOneAndUpdate(
+            { userId: String(userId), roundId: String(roundId) },
+            {
+                $set: {
+                    roundName,
+                    total: normalizedTotal,
+                    criteria: safeCriteria,
+                    updatedAt
+                }
+            },
+            { new: true, upsert: true }
+        ).lean();
 
-    const totalMarks = await computeTotalMarksForUser(String(userId));
-    const updatedSelection = await Selection.findOneAndUpdate(
-        { userId: String(userId) },
-        { $set: { totalMarks, marks: totalMarks } },
-        { new: true }
-    ).lean();
+        const totalMarks = await computeTotalMarksForUser(String(userId));
+        const updatedSelection = await Selection.findOneAndUpdate(
+            { userId: String(userId) },
+            { $set: { totalMarks, marks: totalMarks } },
+            { new: true }
+        ).lean();
 
-    const userMarks = await Marks.find({ userId: String(userId) })
-        .select({ roundId: 1, roundName: 1, total: 1, criteria: 1, updatedAt: 1 })
-        .lean();
-    const marksByRound = {};
-    for (const row of userMarks) {
-        marksByRound[String(row.roundId)] = {
-            total: row.total,
-            criteria: row.criteria,
-            roundName: row.roundName,
-            updatedAt: row.updatedAt
-        };
+        const userMarks = await Marks.find({ userId: String(userId) })
+            .select({ roundId: 1, roundName: 1, total: 1, criteria: 1, updatedAt: 1 })
+            .lean();
+        const marksByRound = {};
+        for (const row of userMarks) {
+            marksByRound[String(row.roundId)] = {
+                total: row.total,
+                criteria: row.criteria,
+                roundName: row.roundName,
+                updatedAt: row.updatedAt
+            };
+        }
+
+        res.json({ message: 'Marks updated', selection: { ...updatedSelection, marksByRound } });
+    } catch (err) {
+        req.log?.error({ err }, 'Failed to update marks');
+        res.status(500).json({ message: 'Failed to update marks' });
     }
-
-    res.json({ message: 'Marks updated', selection: { ...updatedSelection, marksByRound } });
 });
 
 module.exports = router;
